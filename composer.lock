@@ -1,0 +1,66 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "3a6d7fced1c2e5ea34199001933e247a",
+    "packages": [
+        {
+            "name": "trashtoy/peach2",
+            "version": "2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/trashtoy/PEACH2.git",
+                "reference": "685b31a83e916e7577758bad5c6724ba509683b0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/trashtoy/PEACH2/zipball/685b31a83e916e7577758bad5c6724ba509683b0",
+                "reference": "685b31a83e916e7577758bad5c6724ba509683b0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Peach\\": "src/Peach"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "trashtoy",
+                    "email": "trashtoy@yahoo.co.jp",
+                    "homepage": "https://trashtoy.github.io/"
+                }
+            ],
+            "description": "provides a general-purpose class library: array manipulation, datetime management, dynamically markup, data encode/decode API, etc.",
+            "homepage": "https://github.com/trashtoy/PEACH2",
+            "keywords": [
+                "array",
+                "date",
+                "datetime",
+                "html",
+                "markup",
+                "time",
+                "util",
+                "xml"
+            ],
+            "time": "2015-09-11 03:13:52"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
