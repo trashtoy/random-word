@@ -47,6 +47,7 @@ class Base implements Context
             case 9:
                 return new Sokuon($tr);
             case 10:
+                return new LongVowel($tr);
             case 11:
             default:
                 $char = $tr->getRandomChar();
