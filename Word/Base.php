@@ -42,12 +42,13 @@ class Base implements Context
      */
     public function next()
     {
+        $tr = $this->translator;
         switch (rand(0, 11)) {
             case 9:
+                return new Sokuon($tr);
             case 10:
             case 11:
             default:
-                $tr   = $this->translator;
                 $char = $tr->getRandomChar();
                 return new Base($tr, $char);
         }
