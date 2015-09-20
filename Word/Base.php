@@ -49,6 +49,7 @@ class Base implements Context
             case 10:
                 return new LongVowel($tr);
             case 11:
+                return new N($tr);
             default:
                 $char = $tr->getRandomChar();
                 return new Base($tr, $char);

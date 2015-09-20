@@ -29,6 +29,7 @@ class LongVowel implements Context
         $tr = $this->translator;
         switch (rand(0, 7)) {
             case 7:
+                return new N($tr);
             default:
                 $char = $tr->getRandomChar();
                 return new Base($tr, $char);
