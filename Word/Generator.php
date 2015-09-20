@@ -8,7 +8,8 @@ class Generator
     {
         $result   = "";
         $bytes    = 0;
-        $context  = new Base(new Translator());
+        $tr       = new Translator();
+        $context  = new Start($tr);
         while ($bytes <= 900) {
             $context = $context->next();
             $next    = $context->getChar();

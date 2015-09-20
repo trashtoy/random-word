@@ -21,7 +21,7 @@ class Base implements Context
      * @param Translator $translator
      * @param string $char
      */
-    public function __construct(Translator $translator, $char = "")
+    public function __construct(Translator $translator, $char)
     {
         $this->translator = $translator;
         $this->char       = $char;
@@ -47,19 +47,9 @@ class Base implements Context
             case 10:
             case 11:
             default:
-                return new Base($this->translator, $this->getNextChar());
+                $tr   = $this->translator;
+                $char = $tr->getRandomChar();
+                return new Base($tr, $char);
         }
-    }
-    
-    /**
-     * 
-     * @return string
-     */
-    private function getNextChar()
-    {
-        $charList = $this->translator->getCharList();
-        $count    = count($charList);
-        $key      = rand(0, $count - 1);
-        return $charList[$key];
     }
 }

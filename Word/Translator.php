@@ -79,12 +79,16 @@ class Translator
     }
     
     /**
+     * "っ", "ん", "ー" 以外のランダム文字を返します.
      * 
-     * @return array
+     * @return string
      */
-    public function getCharList()
+    public function getRandomChar()
     {
-        return $this->charList;
+        $charList = $this->charList;
+        $count    = count($charList);
+        $key      = rand(0, $count - 1);
+        return $charList[$key];
     }
     
     /**

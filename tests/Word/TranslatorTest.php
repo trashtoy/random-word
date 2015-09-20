@@ -36,17 +36,6 @@ class TranslatorTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @covers Word\Translator::getCharList
-     */
-    public function testGetCharList()
-    {
-        $obj = $this->object;
-        $cl  = $obj->getCharList();
-        $this->assertTrue(in_array("じぇ", $cl, true));
-        $this->assertFalse(in_array("ばょ", $cl, true));
-    }
-    
-    /**
      * @covers Word\Translator::getConsonantList
      */
     public function testGetConsonantList()
