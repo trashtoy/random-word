@@ -90,11 +90,20 @@ class Translator
     }
     
     /**
-     * 
-     * @return array
+     * ランダムな子音 ("s", "k" など) を返します.
      */
-    public function getConsonantList()
+    public function getRandomConsonant()
     {
-        return $this->consonantList;
+        $cl    = $this->consonantList;
+        $count = count($cl);
+        $key   = rand(0, $count - 1);
+        $cons  = $cl[$key];
+        
+        $isMinor = in_array(substr($cons, 1, 1), ["y", "w"], true);
+        if ($isMinor) {
+            return (rand(0, 4) === 0) ? $cons : substr($cons, 0, 1);
+        } else {
+            return $cons;
+        }
     }
 }

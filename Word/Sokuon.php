@@ -53,9 +53,7 @@ class Sokuon implements Context
     private function getNextConsonant()
     {
         $ng     = ["", "n", "m", "y", "r", "w"];
-        $cl     = $this->translator->getConsonantList();
-        $key    = rand(0, count($cl) - 1);
-        $result = $cl[$key];
+        $result = $this->translator->getRandomConsonant();
         return in_array(substr($result, 0, 1), $ng) ? $this->getNextConsonant() : $result;
     }
     
