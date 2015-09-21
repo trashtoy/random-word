@@ -43,6 +43,6 @@ class TranslatorTest extends \PHPUnit_Framework_TestCase
         $obj = $this->object;
         $cl  = $obj->getConsonantList();
         $this->assertTrue(in_array("sh", $cl, true));
-        $this->assertFalse(in_array("", $cl, true));
+        $this->assertTrue(in_array("", $cl, true));
     }
 }

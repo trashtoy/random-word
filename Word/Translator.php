@@ -62,8 +62,6 @@ class Translator
             return preg_replace("/a|i|u|e|o/", "", $note);
         };
         $noteList = array_unique(array_map($func, $noteMap->keys()));
-        $index    = array_search("", $noteList);
-        unset($noteList[$index]);
         return array_values($noteList);
     }
     

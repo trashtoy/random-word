@@ -52,7 +52,7 @@ class Sokuon implements Context
      */
     private function getNextConsonant()
     {
-        $ng     = ["n", "m", "y", "r", "w"];
+        $ng     = ["", "n", "m", "y", "r", "w"];
         $cl     = $this->translator->getConsonantList();
         $key    = rand(0, count($cl) - 1);
         $result = $cl[$key];
