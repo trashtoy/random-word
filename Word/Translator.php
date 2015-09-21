@@ -16,18 +16,11 @@ class Translator
      *
      * @var array
      */
-    private $charList;
-    
-    /**
-     *
-     * @var array
-     */
     private $consonantList;
     
     public function __construct()
     {
         $this->noteMap       = $this->createNoteMap();
-        $this->charList      = $this->noteMap->values();
         $this->consonantList = $this->createConsonantList($this->noteMap);
     }
     
@@ -62,8 +55,6 @@ class Translator
             return preg_replace("/a|i|u|e|o/", "", $note);
         };
         $noteList = array_unique(array_map($func, $noteMap->keys()));
-        $index    = array_search("", $noteList);
-        unset($noteList[$index]);
         return array_values($noteList);
     }
     
@@ -85,18 +76,36 @@ class Translator
      */
     public function getRandomChar()
     {
-        $charList = $this->charList;
-        $count    = count($charList);
-        $key      = rand(0, $count - 1);
-        return $charList[$key];
+        $note  = $this->getRandomConsonant() . $this->getRandomVowel();
+        $map   = $this->noteMap;
+        return $map->containsKey($note) ? $map->get($note) : $this->getRandomChar();
     }
     
     /**
-     * 
-     * @return array
+     * ランダムな母音 ("a", "i", "u", "e", "o") を返します.
      */
-    public function getConsonantList()
+    public function getRandomVowel()
     {
-        return $this->consonantList;
+        $vowels = ["a", "i", "u", "e", "o"];
+        $key    = rand(0, 4);
+        return $vowels[$key];
+    }
+    
+    /**
+     * ランダムな子音 ("s", "k" など) を返します.
+     */
+    public function getRandomConsonant()
+    {
+        $cl    = $this->consonantList;
+        $count = count($cl);
+        $key   = rand(0, $count - 1);
+        $cons  = $cl[$key];
+        
+        $isMinor = in_array(substr($cons, 1, 1), ["y", "w"], true);
+        if ($isMinor) {
+            return (rand(0, 4) === 0) ? $cons : substr($cons, 0, 1);
+        } else {
+            return $cons;
+        }
     }
 }

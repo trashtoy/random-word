@@ -36,13 +36,12 @@ class TranslatorTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @covers Word\Translator::getConsonantList
+     * @covers Word\Translator::getRandomConsonant
      */
-    public function testGetConsonantList()
+    public function testGetRandomConsonant()
     {
         $obj = $this->object;
-        $cl  = $obj->getConsonantList();
-        $this->assertTrue(in_array("sh", $cl, true));
-        $this->assertFalse(in_array("", $cl, true));
+        $c   = $obj->getRandomConsonant();
+        $this->assertRegExp("/\\A[^aiueo]*\\z/", $c);
     }
 }

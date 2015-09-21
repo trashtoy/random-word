@@ -41,7 +41,7 @@ class Sokuon implements Context
     private function getNextChar()
     {
         $c    = $this->getNextConsonant();
-        $v    = $this->getNextVowel();
+        $v    = $this->translator->getRandomVowel();
         $char = $this->translator->translate($c . $v);
         return ($char === "") ? $this->getNextChar() : $char;
     }
@@ -52,21 +52,8 @@ class Sokuon implements Context
      */
     private function getNextConsonant()
     {
-        $ng     = ["n", "m", "y", "r", "w"];
-        $cl     = $this->translator->getConsonantList();
-        $key    = rand(0, count($cl) - 1);
-        $result = $cl[$key];
+        $ng     = ["", "n", "m", "y", "r", "w"];
+        $result = $this->translator->getRandomConsonant();
         return in_array(substr($result, 0, 1), $ng) ? $this->getNextConsonant() : $result;
-    }
-    
-    /**
-     * 
-     * @return string
-     */
-    private function getNextVowel()
-    {
-        $vowels = ["a", "i", "u", "e", "o"];
-        $key    = rand(0, 4);
-        return $vowels[$key];
     }
 }
