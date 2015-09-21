@@ -16,18 +16,11 @@ class Translator
      *
      * @var array
      */
-    private $charList;
-    
-    /**
-     *
-     * @var array
-     */
     private $consonantList;
     
     public function __construct()
     {
         $this->noteMap       = $this->createNoteMap();
-        $this->charList      = $this->noteMap->values();
         $this->consonantList = $this->createConsonantList($this->noteMap);
     }
     
@@ -83,10 +76,19 @@ class Translator
      */
     public function getRandomChar()
     {
-        $charList = $this->charList;
-        $count    = count($charList);
-        $key      = rand(0, $count - 1);
-        return $charList[$key];
+        $note  = $this->getRandomConsonant() . $this->getRandomVowel();
+        $map   = $this->noteMap;
+        return $map->containsKey($note) ? $map->get($note) : $this->getRandomChar();
+    }
+    
+    /**
+     * ランダムな母音 ("a", "i", "u", "e", "o") を返します.
+     */
+    public function getRandomVowel()
+    {
+        $vowels = ["a", "i", "u", "e", "o"];
+        $key    = rand(0, 4);
+        return $vowels[$key];
     }
     
     /**
