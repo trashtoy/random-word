@@ -103,7 +103,7 @@ class Translator
         
         $isMinor = in_array(substr($cons, 1, 1), ["y", "w"], true);
         if ($isMinor) {
-            return (rand(0, 4) === 0) ? $cons : substr($cons, 0, 1);
+            return (rand(0, 9) === 0) ? $cons : substr($cons, 0, 1);
         } else {
             return $cons;
         }
