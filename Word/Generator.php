@@ -4,13 +4,21 @@ namespace Word;
 
 class Generator
 {
+    private $length;
+    
+    public function __construct($length)
+    {
+        $this->length = $length;
+    }
+    
     public function generate()
     {
         $result   = "";
         $bytes    = 0;
         $tr       = new Translator();
         $context  = new Start($tr);
-        while ($bytes <= 900) {
+        $max      = $this->length * 3;
+        while ($bytes < $max) {
             $context = $context->next();
             $next    = $context->getChar();
             
