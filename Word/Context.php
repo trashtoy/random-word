@@ -2,6 +2,9 @@
 
 namespace Word;
 
+/**
+ * ひらがな 1 発音と, この次に続く文字を計算するインタフェースです.
+ */
 interface Context
 {
     /**

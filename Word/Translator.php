@@ -4,6 +4,10 @@ namespace Word;
 
 use Peach\Util\ArrayMap;
 
+/**
+ * 発音 (ローマ字) をひらがなに変換するクラスです.
+ * ランダムな文字, 子音, 母音を生成する機能も持ちます.
+ */
 class Translator
 {
     /**
@@ -103,7 +107,7 @@ class Translator
         
         $isMinor = in_array(substr($cons, 1, 1), ["y", "w"], true);
         if ($isMinor) {
-            return (rand(0, 4) === 0) ? $cons : substr($cons, 0, 1);
+            return (rand(0, 9) === 0) ? $cons : substr($cons, 0, 1);
         } else {
             return $cons;
         }
