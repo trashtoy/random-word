@@ -2,6 +2,9 @@
 
 namespace Word;
 
+/**
+ * "ん", "っ", "ー" を除く任意のひらがなをあらわすクラスです.
+ */
 class Base implements Context
 {
     /**

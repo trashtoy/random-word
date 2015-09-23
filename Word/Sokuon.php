@@ -2,6 +2,10 @@
 
 namespace Word;
 
+/**
+ * 促音 (っ) をあらわす Context です.
+ * "っ" の後ろには, あ行, な行, ま行, や行, ら行, わ行以外の発音が続きます.
+ */
 class Sokuon implements Context
 {
     /**
@@ -16,6 +20,7 @@ class Sokuon implements Context
     }
     
     /**
+     * 文字列 "っ" を返します.
      * 
      * @return string
      */
@@ -25,6 +30,7 @@ class Sokuon implements Context
     }
     
     /**
+     * あ行, な行, ま行, や行, ら行, わ行以外の発音の Base オブジェクトを返します.
      * 
      * @return Context
      */
@@ -35,6 +41,7 @@ class Sokuon implements Context
     }
     
     /**
+     * 後ろに続く文字を生成します.
      * 
      * @return string
      */
@@ -47,6 +54,7 @@ class Sokuon implements Context
     }
     
     /**
+     * 後ろに続く文字の子音部分を返します.
      * 
      * @return string
      */

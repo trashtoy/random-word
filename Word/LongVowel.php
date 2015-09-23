@@ -2,6 +2,10 @@
 
 namespace Word;
 
+/**
+ * 長音 (ー) をあらわす Context です.
+ * "ー" の後ろには "ー", "っ" を除く任意の文字が後に続きます. ("ん" を含みます)
+ */
 class LongVowel implements Context
 {
     /**
@@ -16,6 +20,7 @@ class LongVowel implements Context
     }
     
     /**
+     * 文字列 "ー" を返します.
      * 
      * @return string
      */
@@ -23,7 +28,12 @@ class LongVowel implements Context
     {
         return "ー";
     }
-
+    
+    /**
+     * N または Base を返します.
+     * 
+     * @return Context
+     */
     public function next()
     {
         $tr = $this->translator;

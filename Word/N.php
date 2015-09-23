@@ -2,6 +2,10 @@
 
 namespace Word;
 
+/**
+ * "ん" をあらわす Context です.
+ * "ん" の後ろには "ん", "っ", "ー" を除く任意の文字が続きます.
+ */
 class N implements Context
 {
     private $translator;
@@ -12,6 +16,7 @@ class N implements Context
     }
     
     /**
+     * 文字列 "ん" を返します.
      * 
      * @return string
      */
@@ -21,6 +26,7 @@ class N implements Context
     }
     
     /**
+     * Base オブジェクトを返します.
      * 
      * @return Context
      */

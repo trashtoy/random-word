@@ -4,6 +4,10 @@ namespace Word;
 
 use Peach\Util\ArrayMap;
 
+/**
+ * 発音 (ローマ字) をひらがなに変換するクラスです.
+ * ランダムな文字, 子音, 母音を生成する機能も持ちます.
+ */
 class Translator
 {
     /**
